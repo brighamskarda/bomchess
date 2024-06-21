@@ -34,8 +34,6 @@ This will be a full representation of a chess game as defined in the pgn standar
  * CanClaimefiftyMove
  * CanClaimthreefold
 
-
-
 ### Constants
  * List of standard tags
  * Enum Result - White, Black, Draw, None
@@ -106,13 +104,14 @@ Generates Moves and determines checks/checmates.
 
 ### Functions
 
-IsCheck()
-IsCheckMate()
-IsStaleMate()
-GenerateLegalMoves()
-GeneratePsuedoLegalMoves()
+ * IsCheck()
+ * IsCheckMate()
+ * IsStaleMate()
+ * GenerateLegalMoves()
+ * GeneratePsuedoLegalMoves()
+ * GenerateLegalMoves(Board, Square)
 
-## TypedefPosition
+## Position
 
 Represents a chess position with no information related to moves. Does not need to be valid, but boards can't be build with invalid positions.
 
@@ -121,6 +120,9 @@ Represents a chess position with no information related to moves. Does not need 
 std::array of pieces
 
 ### Member Functions
+
+at
+iterator
 
 ### External Functions
 

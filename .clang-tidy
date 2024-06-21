@@ -1,0 +1,7 @@
+Checks: >
+  -*,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  google-explicit-constructor
+
+ExcludeHeaderFilterRegex: '*boost*'
