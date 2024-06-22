@@ -34,6 +34,11 @@ target_include_directories(square_tests PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(square_tests PRIVATE ${Boost_LIBRARIES})
 target_link_libraries(square_tests PRIVATE bomchess)
 
+add_executable(color_tests "test/color_tests.cpp")
+target_include_directories(color_tests PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(color_tests PRIVATE ${Boost_LIBRARIES})
+target_link_libraries(color_tests PRIVATE bomchess)
+
 enable_testing()
 add_test(NAME square_tests COMMAND square_tests)
 
