@@ -29,10 +29,7 @@ Move FromUCI(const std::string_view move_string) {
 }
 
 std::string ToUCI(const Move move) {
-  const auto from_square_underlying = std::to_underlying(move.from_square);
-  const auto to_square_underlying = std::to_underlying(move.to_square);
-  if (from_square_underlying > 63 || from_square_underlying < 0 || to_square_underlying > 63 ||
-      to_square_underlying < 0) {
+  if (!IsValidSquare(move.from_square) || !IsValidSquare(move.to_square)) {
     throw std::invalid_argument("Move has invalid squares.");
   }
   const auto promotion_underlying = std::to_underlying(move.promotion);

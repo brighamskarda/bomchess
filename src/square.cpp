@@ -30,14 +30,14 @@ Square SquareFromString(const std::string_view string) {
 }
 
 char GetFile(const Square square) {
-  if (std::to_underlying(square) < 0 || std::to_underlying(square) >= kAllSquares.size()) {
+  if (!IsValidSquare(square)) {
     throw std::invalid_argument("Can't get file from invalid square.");
   }
   return static_cast<char>('a' + std::to_underlying(square) % 8);
 }
 
 char GetRank(const Square square) {
-  if (std::to_underlying(square) < 0 || std::to_underlying(square) >= kAllSquares.size()) {
+  if (!IsValidSquare(square)) {
     throw std::invalid_argument("Can't get file from invalid square.");
   }
   return static_cast<char>('8' - std::to_underlying(square) / 8);
@@ -67,8 +67,7 @@ int8_t ManhattanDistance(const Square square_1, const Square square_2) {
   return static_cast<int8_t>(RankDistance(square_1, square_2) + FileDistance(square_1, square_2));
 }
 int8_t KnightDistance(const Square square_1, const Square square_2) {
-  if (std::to_underlying(square_1) < 0 || std::to_underlying(square_1) >= kAllSquares.size() ||
-      std::to_underlying(square_2) < 0 || std::to_underlying(square_2) >= kAllSquares.size()) {
+  if (!IsValidSquare(square_1) || !IsValidSquare(square_2)) {
     throw std::invalid_argument("Invalid Squares");
   }
   // Implementation details at
