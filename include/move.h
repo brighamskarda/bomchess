@@ -21,7 +21,7 @@ struct Move {
 [[nodiscard]] Move FromUCI(std::string_view move_string);
 
 /**
- * @exception std::invalid_argument if the move contains invalid information.
+ * @exception std::invalid_argument if the move contains invalid squares or piece types.
  */
 [[nodiscard]] std::string ToUCI(Move move);
 

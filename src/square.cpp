@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <ostream>
 #include <stdexcept>
+#include <utility>
 
 namespace bomchess {
 Square SquareFromFileRank(const char file, const char rank) {
@@ -46,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, const Square square) noexcept {
   try {
     os << GetFile(square) << GetRank(square);
   } catch (std::exception&) {
-    os << "Invalid Square";
+    os << "";
   }
   return os;
 }

@@ -1,6 +1,8 @@
 #include "move.h"
 
+#include <sstream>
 #include <string_view>
+#include <utility>
 
 #include "piece.h"
 #include "square.h"
@@ -26,7 +28,23 @@ Move FromUCI(const std::string_view move_string) {
   return move;
 }
 
-std::string ToUCI(Move move) { return ""; }
+std::string ToUCI(const Move move) {
+  const auto from_square_underlying = std::to_underlying(move.from_square);
+  const auto to_square_underlying = std::to_underlying(move.to_square);
+  if (from_square_underlying > 63 || from_square_underlying < 0 || to_square_underlying > 63 ||
+      to_square_underlying < 0) {
+    throw std::invalid_argument("Move has invalid squares.");
+  }
+  const auto promotion_underlying = std::to_underlying(move.promotion);
+  if (promotion_underlying > 6 || promotion_underlying < 0) {
+    throw std::invalid_argument("Move has invalid promotion.");
+  }
+  std::stringstream uci;
+  uci << move.from_square << move.to_square;
+  const Piece promotion(Color::kWhite, move.promotion);
+  uci << promotion;
+  return uci.str();
+}
 
 std::ostream& operator<<(std::ostream& os, Move move) noexcept { return os; }
 }  // namespace bomchess

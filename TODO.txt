@@ -154,8 +154,6 @@ Represents a UCI chess move. Needs board info to do things like SAN, and LAN.
 
 ### Functions
 
-* From UCI
-* To UCI
 * ostream<<
 * FromSAN(Board, string)
 * ToSAN(Board, string)
