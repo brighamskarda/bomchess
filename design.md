@@ -194,10 +194,12 @@ Represents a UCI chess move. Needs board info to do things like SAN, and LAN.
 ### Functions
 
 * From UCI
-* ToString
+* To UCI
 * ostream<<
 * FromSAN(Board, string)
+* ToSAN(Board, string)
 * FromLan(Board, string)
+* ToLan(Board, string)
 
 ## Square Enum
 

@@ -2,6 +2,7 @@
 
 #include <ostream>
 #include <stdexcept>
+#include <string_view>
 #include <unordered_set>
 
 #include "color.h"
@@ -80,7 +81,7 @@ bomchess::Color GetPieceColor(const std::string_view piece) noexcept {
 namespace bomchess {
 Piece PieceFromString(const std::string_view piece_string) {
   const Piece piece{GetPieceColor(piece_string), GetPieceType(piece_string)};
-  if (piece.color == Color::kNone || piece.type == PieceType::kNone) {
+  if (piece == pieces::kNone) {
     throw std::invalid_argument("Invalid piece string.");
   }
   return piece;

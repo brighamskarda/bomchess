@@ -1,6 +1,7 @@
 #ifndef PIECE_H
 #define PIECE_H
 
+#include <bitset>
 #include <ostream>
 
 #include "color.h"
@@ -9,10 +10,10 @@ namespace bomchess {
 enum class PieceType { kPawn, kRook, kKnight, kBishop, kQueen, kKing, kNone };
 
 struct Piece {
-  constexpr bool operator==(const Piece& rhs) const = default;
-
   Color color;
   PieceType type;
+
+  constexpr bool operator==(const Piece&) const = default;
 };
 
 /**
@@ -40,6 +41,8 @@ constexpr Piece kBlackKnight{Color::kBlack, PieceType::kKnight};
 constexpr Piece kBlackBishop{Color::kBlack, PieceType::kBishop};
 constexpr Piece kBlackQueen{Color::kBlack, PieceType::kQueen};
 constexpr Piece kBlackKing{Color::kBlack, PieceType::kKing};
+constexpr Piece kNone{Color::kNone, PieceType::kNone};
+
 }  // namespace pieces
 }  // namespace bomchess
 

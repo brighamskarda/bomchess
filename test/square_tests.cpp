@@ -37,8 +37,8 @@ BOOST_AUTO_TEST_CASE(SquareGetFile) {
 }
 
 BOOST_AUTO_TEST_CASE(SquareGetFileThrows) {
-  BOOST_CHECK_THROW(bomchess::GetFile(bomchess::Square(-1)), std::invalid_argument);
-  BOOST_CHECK_THROW(bomchess::GetFile(bomchess::Square(64)), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::GetFile(static_cast<bomchess::Square>(-1)), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::GetFile(static_cast<bomchess::Square>(64)), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(SquareGetRank) {
@@ -49,8 +49,8 @@ BOOST_AUTO_TEST_CASE(SquareGetRank) {
 }
 
 BOOST_AUTO_TEST_CASE(SquareGetRankThrows) {
-  BOOST_CHECK_THROW(bomchess::GetRank(bomchess::Square(-1)), std::invalid_argument);
-  BOOST_CHECK_THROW(bomchess::GetRank(bomchess::Square(64)), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::GetRank(static_cast<bomchess::Square>(-1)), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::GetRank(static_cast<bomchess::Square>(64)), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(SquareFromFileRank) {
@@ -60,8 +60,8 @@ BOOST_AUTO_TEST_CASE(SquareFromFileRank) {
 }
 
 BOOST_AUTO_TEST_CASE(SquareFromFileRankThrows) {
-  BOOST_CHECK_THROW(bomchess::SquareFromFileRank('a', 1), std::invalid_argument);
-  BOOST_CHECK_THROW(bomchess::SquareFromFileRank('1', 'a'), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::SquareFromFileRank('a', 1), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::SquareFromFileRank('1', 'a'), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(SquareFromString) {
@@ -71,8 +71,8 @@ BOOST_AUTO_TEST_CASE(SquareFromString) {
 }
 
 BOOST_AUTO_TEST_CASE(SquareFromStringThrows) {
-  BOOST_CHECK_THROW(bomchess::SquareFromString("a 1"), std::invalid_argument);
-  BOOST_CHECK_THROW(bomchess::SquareFromString("i5"), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::SquareFromString("a 1"), std::invalid_argument);
+  BOOST_CHECK_THROW(std::ignore = bomchess::SquareFromString("i5"), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(ChebyshevDistance) {
