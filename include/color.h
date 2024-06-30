@@ -6,7 +6,7 @@
 namespace bomchess {
 enum class Color { kWhite, kBlack, kNone };
 
-inline std::ostream& operator<<(std::ostream& os, const Color color) noexcept {
+constexpr std::ostream& operator<<(std::ostream& os, const Color color) noexcept {
   switch (color) {
     case Color::kWhite:
       os << "WHITE";

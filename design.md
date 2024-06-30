@@ -160,7 +160,6 @@ Represents a Piece
 ### Member Functions
 
 * Piece(string) - Takes letters or symbols
-* getters, not setters
 
 ### Functions
 
@@ -181,7 +180,6 @@ A simple enum to represent colors. All printing of colors should be handled outs
 ### ExternalFunctions
 
 * ostream
-* ToString
 
 ## Move Struct
 

@@ -1,8 +1,16 @@
-//
-// Created by brigh on 6/20/2024.
-//
-
 #ifndef MOVE_H
 #define MOVE_H
 
-#endif //MOVE_H
+#include "piece.h"
+#include "square.h"
+
+namespace bomchess {
+struct Move {
+ public:
+  Square from_square;
+  Square to_squard;
+  Piece promotion;
+};
+}  // namespace bomchess
+
+#endif  // MOVE_H

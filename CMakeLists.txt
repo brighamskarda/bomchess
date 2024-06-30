@@ -16,6 +16,8 @@ target_sources(bomchess PRIVATE
         "src/game.cpp"
         "src/move.cpp"
         "src/movegen.cpp"
+        "src/piece.cpp"
+        "src/square.cpp"
 
         PUBLIC FILE_SET HEADERS BASE_DIRS ${PROJECT_SOURCE_DIR}/include FILES
         "include/board.h"
@@ -39,7 +41,14 @@ target_include_directories(color_tests PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(color_tests PRIVATE ${Boost_LIBRARIES})
 target_link_libraries(color_tests PRIVATE bomchess)
 
+add_executable(piece_tests "test/piece_tests.cpp")
+target_include_directories(piece_tests PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(piece_tests PRIVATE ${Boost_LIBRARIES})
+target_link_libraries(piece_tests PRIVATE bomchess)
+
 enable_testing()
 add_test(NAME square_tests COMMAND square_tests)
+add_test(NAME color_tests COMMAND color_tests)
+add_test(NAME piece_tests COMMAND piece_tests)
 
 install(TARGETS bomchess FILE_SET HEADERS)
