@@ -91,6 +91,8 @@ std::ostream& operator<<(std::ostream& os, Square square) noexcept;
  */
 [[nodiscard]] int8_t KnightDistance(Square square_1, Square square_2);
 
+[[nodiscard]] bool IsValidSquare(Square square);
+
 }  // namespace bomchess
 
 #endif  // SQUARE_H

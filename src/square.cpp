@@ -104,4 +104,11 @@ int8_t KnightDistance(const Square square_1, const Square square_2) {
   return distance;
 }
 
+bool IsValidSquare(const Square square) {
+  if (std::to_underlying(square) >= kAllSquares.size() || std::to_underlying(square) < 0) {
+    return false;
+  }
+  return true;
+}
+
 }  // namespace bomchess

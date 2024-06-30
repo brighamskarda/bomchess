@@ -1,6 +1,5 @@
 #define BOOST_TEST_MODULE "bomchess"
 
-#include <ostream>
 #include <sstream>
 #include <stdexcept>
 

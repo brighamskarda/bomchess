@@ -132,15 +132,6 @@ Generates Moves and determines checks/checmates.
 Represents a chess position with no information related to moves. Does not need to be valid, but boards can't be build
 with invalid positions.
 
-### Data Members
-
-std::array of pieces
-
-### Member Functions
-
-at
-iterator
-
 ### External Functions
 
 ostream<<
@@ -154,7 +145,6 @@ Represents a UCI chess move. Needs board info to do things like SAN, and LAN.
 
 ### Functions
 
-* ostream<<
 * FromSAN(Board, string)
 * ToSAN(Board, string)
 * FromLan(Board, string)
