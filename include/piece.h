@@ -43,4 +43,9 @@ constexpr Piece kBlackKing{Color::kBlack, PieceType::kKing};
 }  // namespace pieces
 }  // namespace bomchess
 
+template <>
+struct std::hash<bomchess::Piece> {
+  std::size_t operator()(const bomchess::Piece& piece) const noexcept;
+};
+
 #endif  // PIECE_H

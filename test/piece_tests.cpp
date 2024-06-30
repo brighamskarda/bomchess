@@ -2,6 +2,7 @@
 
 #include <sstream>
 #include <stdexcept>
+#include <unordered_set>
 
 #include "boost/test/unit_test.hpp"
 
@@ -44,4 +45,10 @@ BOOST_AUTO_TEST_CASE(PieceToSymbols) {
 
   test_string = bomchess::ToSymbol(bomchess::pieces::kWhiteKnight);
   BOOST_CHECK_EQUAL(test_string, "♘");
+}
+
+BOOST_AUTO_TEST_CASE(PieceHash) {
+  std::unordered_set<bomchess::Piece> test_set;
+  BOOST_CHECK_NO_THROW(test_set.insert(bomchess::pieces::kBlackBishop));
+  BOOST_CHECK_NO_THROW(test_set.insert(bomchess::pieces::kWhiteKing));
 }

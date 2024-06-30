@@ -171,3 +171,9 @@ std::ostream& operator<<(std::ostream& os, const Piece piece) noexcept {
   return os;
 }
 }  // namespace bomchess
+
+std::size_t std::hash<bomchess::Piece>::operator()(const bomchess::Piece& piece) const noexcept {
+  size_t hash_value = std::hash<bomchess::Color>{}(piece.color);
+  hash_value ^= std::hash<bomchess::PieceType>{}(piece.type) << 1;
+  return hash_value;
+}
