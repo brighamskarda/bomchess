@@ -26,7 +26,7 @@ struct Move {
 [[nodiscard]] std::string ToUCI(Move move);
 
 /**
- * Outputs the UCI form of the move to the ostream.
+ * Outputs the UCI form of the move to the ostream. Nothing is printed if the move is invalid.
  */
 std::ostream& operator<<(std::ostream& os, Move move) noexcept;
 

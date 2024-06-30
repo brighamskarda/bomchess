@@ -1,6 +1,7 @@
 #define BOOST_TEST_MODULE "bomchess"
 
 #include <ostream>
+#include <sstream>
 #include <stdexcept>
 
 #include "boost/test/unit_test.hpp"
@@ -45,4 +46,19 @@ BOOST_AUTO_TEST_CASE(MoveToUCIThrows) {
   BOOST_CHECK_THROW(std::ignore = bomchess::ToUCI(bomchess::Move(bomchess::Square::kA2, bomchess::Square::kA4,
                                                                  static_cast<bomchess::PieceType>(99))),
                     std::invalid_argument);
+}
+
+BOOST_AUTO_TEST_CASE(MoveOstream) {
+  bomchess::Move test_move(bomchess::Square::kA2, bomchess::Square::kA4, bomchess::PieceType::kNone);
+  std::ostringstream test_stream;
+  test_stream << test_move;
+  BOOST_CHECK_EQUAL(test_stream.str(), "a2a4");
+  test_move = bomchess::Move(bomchess::Square::kH2, bomchess::Square::kH1, bomchess::PieceType::kKing);
+  test_stream.str("");
+  test_stream << test_move;
+  BOOST_CHECK_EQUAL(test_stream.str(), "h2h1K");
+  test_move = bomchess::Move(bomchess::Square::kE5, bomchess::Square::kD5, bomchess::PieceType::kNone);
+  test_stream.str("");
+  test_stream << test_move;
+  BOOST_CHECK_EQUAL(test_stream.str(), "e5d5");
 }

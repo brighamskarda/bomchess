@@ -47,7 +47,6 @@ std::ostream& operator<<(std::ostream& os, const Square square) noexcept {
   try {
     os << GetFile(square) << GetRank(square);
   } catch (std::exception&) {
-    os << "";
   }
   return os;
 }

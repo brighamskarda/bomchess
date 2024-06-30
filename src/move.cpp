@@ -46,5 +46,11 @@ std::string ToUCI(const Move move) {
   return uci.str();
 }
 
-std::ostream& operator<<(std::ostream& os, Move move) noexcept { return os; }
+std::ostream& operator<<(std::ostream& os, const Move move) noexcept {
+  try {
+    os << ToUCI(move);
+  } catch (std::exception&) {
+  }
+  return os;
+}
 }  // namespace bomchess
