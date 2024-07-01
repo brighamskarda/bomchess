@@ -149,3 +149,7 @@ Represents a UCI chess move. Needs board info to do things like SAN, and LAN.
 * ToSAN(Board, string)
 * FromLan(Board, string)
 * ToLan(Board, string)
+
+
+## Move
+Move hash

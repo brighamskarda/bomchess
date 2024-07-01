@@ -31,6 +31,12 @@ class Position {
   std::array<Piece, 64> position_;
 };
 
+/**
+ * @param flip Set to true if you wish to print the position from black's perspective.
+ * @exception std::invalid_argument if position contains invalid chess pieces.
+ */
+[[nodiscard]] std::string ToString(const Position& position, bool flip = false);
+
 }  // namespace bomchess
 
 #endif  // POSITION_H

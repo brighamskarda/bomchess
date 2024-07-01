@@ -116,13 +116,16 @@ std::string_view ToString(const Piece piece) noexcept {
     return "n";
   }
   if (piece == pieces::kBlackBishop) {
-    return "n";
+    return "b";
   }
   if (piece == pieces::kBlackQueen) {
     return "q";
   }
   if (piece == pieces::kBlackKing) {
     return "k";
+  }
+  if (piece == pieces::kNone) {
+    return "-";
   }
   return "";
 }
@@ -163,6 +166,9 @@ std::string_view ToSymbol(const Piece piece) noexcept {
   }
   if (piece == pieces::kBlackKing) {
     return kBlackKingSymbol;
+  }
+  if (piece == pieces::kNone) {
+    return "-";
   }
   return "";
 }

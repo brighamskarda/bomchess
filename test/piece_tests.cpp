@@ -34,6 +34,10 @@ BOOST_AUTO_TEST_CASE(PieceOstream) {
   test_stream.str("");
   test_stream << bomchess::pieces::kWhiteKnight;
   BOOST_CHECK_EQUAL(test_stream.str(), "N");
+
+  test_stream.str("");
+  test_stream << bomchess::pieces::kNone;
+  BOOST_CHECK_EQUAL(test_stream.str(), "-");
 }
 
 BOOST_AUTO_TEST_CASE(PieceToSymbols) {
@@ -45,6 +49,9 @@ BOOST_AUTO_TEST_CASE(PieceToSymbols) {
 
   test_string = bomchess::ToSymbol(bomchess::pieces::kWhiteKnight);
   BOOST_CHECK_EQUAL(test_string, "♘");
+
+  test_string = bomchess::ToSymbol(bomchess::pieces::kNone);
+  BOOST_CHECK_EQUAL(test_string, "-");
 }
 
 BOOST_AUTO_TEST_CASE(PieceHash) {
